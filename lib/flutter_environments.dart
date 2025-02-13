@@ -85,45 +85,32 @@ class Environment {
     return input;
   }
 
-  /// Format a raw Environment string to proper human-readable format
-  static String format(String platform, {bool errorOnNotFound = true}) {
+  /// Format an EnvironmentType object to proper human-readable format
+  static String format(EnvironmentType platform,
+      {bool errorOnNotFound = true}) {
     switch (platform) {
-      case 'web':
+      case EnvironmentType.web:
         return 'Web';
-      case 'wasm':
+      case EnvironmentType.wasm:
         return 'WASM';
-      case 'webnative':
+      case EnvironmentType.webnative:
         return 'WebNative';
-      case 'android':
+      case EnvironmentType.android:
         return 'Android';
-      case 'ios':
+      case EnvironmentType.ios:
         return 'iOS';
-      case 'linux':
+      case EnvironmentType.linux:
         return 'Linux';
-      case 'macos':
+      case EnvironmentType.macos:
         return 'macOS';
-      case 'windows':
+      case EnvironmentType.windows:
         return 'Windows';
-      case 'fuchsia':
+      case EnvironmentType.fuchsia:
         return 'Fuchsia';
-      case 'desktop':
-        return 'Desktop';
-      case 'mobile':
-        return 'Mobile';
-      case 'online':
-        return 'Online';
-      case 'debug':
-        return 'Debug';
-      default:
-        if (errorOnNotFound == false) {
-          return platform;
-        }
-        throw Exception('Unknown platform: $platform');
     }
   }
 
   static EnvironmentType _getObject(String platform) {
-    platform = format(platform, errorOnNotFound: false);
     switch (platform) {
       case 'web':
         return EnvironmentType.web;
@@ -155,6 +142,11 @@ class Environment {
   /// For getting the current EnvironmentType
   static EnvironmentType get() {
     return _getObject(_getString());
+  }
+
+  @override
+  String toString() {
+    return "Environment(${get()})";
   }
 
   static String _getString() {

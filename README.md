@@ -41,10 +41,10 @@ EnvironmentType is a class of platform conditions with these functions and value
 ### Functions
 
 - `format()`
-    - Formats a raw Environment string to proper human-readable format
+    - Formats a raw EnvironmentType object to proper human-readable format
     - Arguments
-        - `platform`: String (required)
-            - The platform text to be formatted
+        - `platform`: EnvironmentType (required)
+            - The platform to be formatted
         - `errorOnNotFound`: boolean (default: true)
             - If the function should error if the platform inputted is not found
 - `get()`
