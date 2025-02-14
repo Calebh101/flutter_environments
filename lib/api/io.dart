@@ -1,10 +1,10 @@
-/// IO library that handles operations that require dart:io
+/// Handles operations that require dart:io.
 library;
 
 import 'dart:io';
 
-/// Handles operations that require dart:io
-String? ioHandler({bool errorOnNotFound = false}) {
+/// Handles operations that require dart:io.
+String? io({bool errorOnNotFound = false}) {
   if (Platform.isAndroid) {
     return "android";
   }

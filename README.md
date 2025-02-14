@@ -52,5 +52,5 @@ EnvironmentType is a class of platform conditions with these functions and value
 
 # Extra notes
 
-- This package should be compatible with WASM, but for some reason Pana says it's not
-- I wanted a better name, trust me, but a lot were already taken
+- This package should be compatible with WASM, but for some reason Pana says it's not.
+- I wanted a better name, trust me, but most of the ones I wanted were already taken.

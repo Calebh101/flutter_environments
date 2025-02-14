@@ -155,6 +155,6 @@ class Environment {
     if (kIsWasm) {
       return "wasm";
     }
-    return ioHandler() ?? 'unknown';
+    return io() ?? 'unknown';
   }
 }
