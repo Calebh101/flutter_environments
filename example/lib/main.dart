@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_environments/flutter_environments.dart';
+import 'package:flutter_environments_plus/flutter_environments_plus.dart';
 
 void main() {
   runApp(const MyApp());

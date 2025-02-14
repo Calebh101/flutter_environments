@@ -49,3 +49,8 @@ EnvironmentType is a class of platform conditions with these functions and value
             - If the function should error if the platform inputted is not found
 - `get()`
     - Gets the current platform as an EnvironmentType
+
+# Extra notes
+
+- This package should be compatible with WASM, but for some reason Pana says it's not
+- I wanted a better name, trust me, but a lot were already taken

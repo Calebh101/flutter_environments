@@ -31,7 +31,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  flutter_environments:
+  flutter_environments_plus:
     path: ..
 
 dev_dependencies:
