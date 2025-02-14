@@ -2,10 +2,7 @@
 library;
 
 import 'package:flutter/foundation.dart';
-
-import 'api/io.dart' if (dart.library.io) 'api/io.dart';
-import 'api/null.dart' if (dart.library.html) 'api/null.dart';
-import 'api/null.dart' if (dart.library.js) 'api/null.dart';
+import 'api/io.dart' if (dart.library.html) 'api/null.dart';
 
 /// Enum for environment types, like Windows, macOS, Android, etcetera.
 /// WebNative: when the platform is web without using WASM.

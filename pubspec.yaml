@@ -1,6 +1,6 @@
 name: flutter_environments
 description: "A Flutter package for detecting the current platform, with added features like desktop/mobile and more web detection options."
-version: 0.0.0
+version: 1.0.0
 repository: https://github.com/Calebh101/flutter_environments
 
 environment:
