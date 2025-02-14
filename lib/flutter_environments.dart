@@ -1,5 +1,11 @@
-import 'dart:io';
+/// Base library for managing everything for flutter_environments
+library;
+
 import 'package:flutter/foundation.dart';
+
+import 'api/io.dart' if (dart.library.io) 'api/io.dart';
+import 'api/null.dart' if (dart.library.html) 'api/null.dart';
+import 'api/null.dart' if (dart.library.js) 'api/null.dart';
 
 /// Enum for environment types, like Windows, macOS, Android, etcetera.
 /// WebNative: when the platform is web without using WASM.
@@ -81,10 +87,6 @@ class Environment {
     return _getString() == platform;
   }
 
-  static String _get(String input) {
-    return input;
-  }
-
   /// Format an EnvironmentType object to proper human-readable format
   static String format(EnvironmentType platform,
       {bool errorOnNotFound = true}) {
@@ -151,29 +153,11 @@ class Environment {
 
   static String _getString() {
     if (kIsWeb) {
-      return _get("web");
+      return "web";
     }
     if (kIsWasm) {
-      return _get("wasm");
+      return "wasm";
     }
-    if (Platform.isAndroid) {
-      return _get("android");
-    }
-    if (Platform.isIOS) {
-      return _get("ios");
-    }
-    if (Platform.isLinux) {
-      return _get("linux");
-    }
-    if (Platform.isMacOS) {
-      return _get("macos");
-    }
-    if (Platform.isWindows) {
-      return _get("windows");
-    }
-    if (Platform.isFuchsia) {
-      return _get("fuchsia");
-    }
-    return _get('unknown');
+    return ioHandler() ?? 'unknown';
   }
 }
