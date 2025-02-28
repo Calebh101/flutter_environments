@@ -1,5 +1,5 @@
 /// Base library for managing everything for flutter_environments
-library;
+library environment;
 
 import 'package:flutter/foundation.dart';
 import 'api/io.dart' if (dart.library.html) 'api/null.dart';
