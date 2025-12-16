@@ -1,11 +1,12 @@
-/// Base library for managing everything for flutter_environments
-library environment;
+/// Base library for managing everything for flutter_environments.
+library;
 
 import 'package:flutter/foundation.dart';
 import 'api/io.dart' if (dart.library.html) 'api/null.dart';
 
 /// Enum for environment types, like Windows, macOS, Android, etcetera.
-/// WebNative: when the platform is web without using WASM.
+///
+/// [EnvironmentType.webnative]: when the platform is web without using WASM.
 enum EnvironmentType {
   /// Windows
   windows,
@@ -22,11 +23,12 @@ enum EnvironmentType {
   /// Android
   android,
 
-  /// Web (WASM or WebNative)
+  /// Web (WASM or native web)
   web,
 
-  /// Web with WebNative
-  /// For when the platform is web without using WASM
+  /// Web with native web
+  ///
+  /// For when the platform is web without using WASM.
   webnative,
 
   /// Web with WASM
@@ -38,40 +40,42 @@ enum EnvironmentType {
 
 /// Class for environment conditions, like is it Windows, is it Desktop, is it debug mode, etcetera
 class Environment {
-  /// Builder for Environment
-  Environment();
+  Environment._();
 
-  /// True if the platform is Windows
+  /// True if the platform is Windows.
   static bool get isWindows => _is('windows');
 
-  /// True if the platform is macOS
+  /// True if the platform is macOS.
   static bool get isMacos => _is('macos');
 
-  /// True if the platform is any Linux distribution
+  /// True if the platform is any Linux distribution.
   static bool get isLinux => _is('linux');
 
-  /// True if the platform is iOS or iPadOS
+  /// True if the platform is iOS or iPadOS.
   static bool get isIOS => _is('ios');
 
-  /// True if the platform is Android
+  /// True if the platform is Android.
   static bool get isAndroid => _is('android');
 
-  /// True if the platform is on the web (WASM or WebNative)
+  /// True if the platform is on the web (WASM or native web).
   static bool get isWeb => _is('web');
 
-  /// True if the platform is web with WASM
+  /// True if the platform is web with WASM.
   static bool get isWasm => _is('wasm');
 
-  /// True if the platform is Fuchsia
+  /// True if the platform is Fuchsia.
   static bool get isFuchsia => _is('fuchsia');
 
-  /// True if the platform is Windows, macOS, or Linux
+  /// True if the platform is Windows, macOS, or Linux.
   static bool get isDesktop => _is('windows') || _is('macos') || _is('linux');
 
-  /// True if the platform is iOS, iPadOS, or Android
+  /// True if the platform is iOS, iPadOS, or Android.
   static bool get isMobile => _is('ios') || _is('android');
 
-  /// True if the platform is web with WebNative (web without WASM)
+  /// True if the platform is iOS, iPadOS, or macOS.
+  static bool get isApple => _is('ios') || _is('macos');
+
+  /// True if the platform is web with native web (web without WASM).
   static bool get isWebNative => _is('web') && !_is('wasm');
 
   /// True if the project is in debug mode
@@ -93,7 +97,7 @@ class Environment {
       case EnvironmentType.wasm:
         return 'WASM';
       case EnvironmentType.webnative:
-        return 'WebNative';
+        return 'Native Web';
       case EnvironmentType.android:
         return 'Android';
       case EnvironmentType.ios:
@@ -149,12 +153,8 @@ class Environment {
   }
 
   static String _getString() {
-    if (kIsWeb) {
-      return "web";
-    }
-    if (kIsWasm) {
-      return "wasm";
-    }
+    if (kIsWeb) return "web";
+    if (kIsWasm) return "wasm";
     return io() ?? 'unknown';
   }
 }

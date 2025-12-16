@@ -59,10 +59,10 @@ class _HomeState extends State<Home> {
                   print("Is iOS/iPadOS: ${Environment.isIOS}");
                   print("Is Android: ${Environment.isAndroid}");
                   print("Is Fuchsia: ${Environment.isFuchsia}");
-                  print(
-                      "Is web: ${Environment.isWeb} (WASM: ${Environment.isWasm}) (WebNative: ${Environment.isWebNative})");
+                  print("Is web: ${Environment.isWeb} (WASM: ${Environment.isWasm}) (WebNative: ${Environment.isWebNative})");
                   print("Is desktop: ${Environment.isDesktop}");
                   print("Is mobile: ${Environment.isMobile}");
+                  print("Is Apple: ${Environment.isApple}");
                   print("Is debug: ${Environment.isDebug}");
                   print("Is release: ${Environment.isRelease}");
                 },
